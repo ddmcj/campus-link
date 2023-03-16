@@ -3,12 +3,14 @@ import 'package:main/pallete.dart';
 
 
 
-class LoginField extends StatelessWidget{
+class LoginField extends StatelessWidget {
   final String hintText;
-  const LoginField({Key? key, required this.hintText }) : super(key: key);
+  final IconData iconData;
+  
+  const LoginField({Key? key, required this.hintText, required this.iconData}) : super(key: key);
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return ConstrainedBox(
       constraints: const BoxConstraints(
         maxWidth: 400,
@@ -31,25 +33,25 @@ class LoginField extends StatelessWidget{
             borderRadius: BorderRadius.circular(5)
           ),
           hintText: hintText,
+          suffixIcon: Icon(iconData, color: Colors.white),
         ),
         style: const TextStyle(color: Colors.white),
-    ),
-      );
-      
+      ),
+    );  
   }
 }
 
-class PassWordField extends StatelessWidget{
+
+class PassWordField extends StatelessWidget {
   final String hintText;
   const PassWordField({Key? key, required this.hintText}) : super(key: key);
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return ConstrainedBox(
       constraints: const BoxConstraints(
         maxWidth: 400,
       ),
-      
       child: TextFormField(
         obscureText: true,
         decoration: InputDecoration(
@@ -58,20 +60,20 @@ class PassWordField extends StatelessWidget{
               color: Pallete.borderColor,
               width: 2,
             ),
-            borderRadius: BorderRadius.circular(5)
+            borderRadius: BorderRadius.circular(5),
           ),
           focusedBorder: OutlineInputBorder(
-             borderSide: const BorderSide(
+            borderSide: const BorderSide(
               color: Pallete.borderColor,
               width: 2,
             ),
-            borderRadius: BorderRadius.circular(5)
+            borderRadius: BorderRadius.circular(5),
           ),
           hintText: hintText,
+          suffixIcon: Icon(Icons.lock), // <-- add the suffixIcon parameter
         ),
         style: const TextStyle(color: Colors.white),
-    ),
-      );
-      
+      ),
+    );
   }
 }
